@@ -10,6 +10,21 @@ The scripts here have been tested with recent versions of either Windows 10 or U
 Scripts
 -------
 
+### `remove-white-box.sh`
+A simple script to remove any white boxes from a PDF. 
+
+Oftentimes, teachers will distribute a PDF with white boxes covering
+up the text in order to make "fill-in-the-blank" notes. However,
+sometimes you don't want to handwrite your notes and instead you just
+want to have the original notes as a searchable PDF. This script will
+remove any white polygons in a PDF so that any content underneath is
+easily visible. 
+
+This script works by decompressing a PDF into plain text, using a
+regular expression to find and remove any white polygons, then
+recompressing the PDF. This is without a doubt a horrible abuse of
+regex, but it works fairly well.
+
 Licence
 -------
 
