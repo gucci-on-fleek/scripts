@@ -6,7 +6,7 @@
 # SPDX-FileCopyrightText: 2021 gucci-on-fleek
 # Requires: qpdf, moreutils, perl
 
-# A simple script to remove any white boxes from a PDF. 
+# A simple script to remove any white boxes from a PDF.
 #
 # Oftentimes, teachers will distribute a PDF with white boxes covering
 # up the text in order to make "fill-in-the-blank" notes. However,
@@ -19,6 +19,13 @@
 # regular expression to find and remove any white polygons or curves,
 # then recompressing the PDF. This is without a doubt a horrible abuse
 # of regex, but it works fairly well.
+
+if [ -z "$1" ]; then
+    echo 'Insufficient arguments.'
+    echo 'remove-white-box.sh pdf'
+    echo '(Overwrites input)'
+    exit 1
+fi
 
 qpdf --qdf --replace-input $1 # Decompress the PDF into a simple ASCII-ish form that we can operate on with standard text processing utils
 
