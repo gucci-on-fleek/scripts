@@ -11,6 +11,8 @@ Scripts
 -------
 
 ### `remove-white-box.sh`
+_Requires: `qpdf`, `moreutils`, `perl`_
+
 A simple script to remove any white boxes from a PDF. 
 
 Oftentimes, teachers will distribute a PDF with white boxes covering
@@ -26,6 +28,8 @@ then recompressing the PDF. This is without a doubt a horrible abuse
 of regex, but it works fairly well.
 
 ### `noba-to-pdf.sh`
+_Requires: `lualatex`/`xelatex`, `html-xml-utils`, `pandoc`, `curl`_
+
 Noba (https://nobaproject.com) hosts some free (CC BY-NC-SA 4.0)
 textbooks, but they sadly do not offer PDFs or any offline downloads.
 This script scapes their website to create a LaTeX file which you can
