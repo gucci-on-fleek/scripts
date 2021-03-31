@@ -25,6 +25,13 @@ regular expression to find and remove any white polygons or curves,
 then recompressing the PDF. This is without a doubt a horrible abuse
 of regex, but it works fairly well.
 
+### `noba-to-pdf.sh`
+Noba (https://nobaproject.com) hosts some free (CC BY-NC-SA 4.0)
+textbooks, but they sadly do not offer PDFs or any offline downloads.
+This script scapes their website to create a LaTeX file which you can
+then compile into a PDF. This script is based off of HTML scraping, so
+it is quite fragile and thus may break at any time.
+
 Licence
 -------
 
