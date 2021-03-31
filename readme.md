@@ -21,9 +21,9 @@ remove any white polygons in a PDF so that any content underneath is
 easily visible. 
 
 This script works by decompressing a PDF into plain text, using a
-regular expression to find and remove any white polygons, then
-recompressing the PDF. This is without a doubt a horrible abuse of
-regex, but it works fairly well.
+regular expression to find and remove any white polygons or curves,
+then recompressing the PDF. This is without a doubt a horrible abuse
+of regex, but it works fairly well.
 
 Licence
 -------
