@@ -54,6 +54,14 @@ Tasks Performed:
 - Windows Update compaction
 - Defragmenting and TRIMming.
 
+### PowerShell Profile
+_Requires: Windows 10_
+
+A basic PowerShell profile.
+
+I find this PowerShell profile quite useful. It is entirely tailored to
+my own personal use, but hopefully you find some use for it too.
+
 Licence
 -------
 
