@@ -36,7 +36,25 @@ This script scapes their website to create a LaTeX file which you can
 then compile into a PDF. This script is based off of HTML scraping, so
 it is quite fragile and thus may break at any time.
 
+### `system-cleanup.ps1`
+_Requires: Windows 10_
+
+A general (yet basic) Windows system cleanup script
+
+This script runs various "system cleanup" tasks on a Windows computer.
+It is pretty limited in what it runs; it only runs tasks that are fairly
+safe and are almost always desirable. Nevertheless, I am not responsible
+if this script does anything bad to your computer (although I don't
+see how it could).
+
+Tasks Performed:
+- Windows Defender AV scan
+- CLR/.NET precompiling and caching
+- Windows System files scan and repair
+- Windows Update compaction
+- Defragmenting and TRIMming.
+
 Licence
 -------
 
-Unless otherwise stated, everything here is licensed under the Mozilla Public Licence version 2.0 or later.
+Unless otherwise stated, everything here is licensed under the Mozilla Public Licence, version 2.0 or later.
