@@ -1,56 +1,86 @@
 #!/usr/bin/env python3
 
-import ctypes
-from appJar import gui
+import tkinter as tk
+from ctypes import OleDLL, windll
+from tkinter import font, ttk
+from typing import Set
 
-ctypes.OleDLL("shcore").SetProcessDpiAwareness(1)
+INTEGERS: Set[str] = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "0"}
 
 
-class SleepStatus:
+class KeepAwake:
     ES_CONTINUOUS = 0x80000000
     ES_SYSTEM_REQUIRED = 0x00000001
 
     def __init__(self):
-        self.can_sleep = True
+        self.kept_awake: bool = False
 
-    @property
-    def can_sleep(self):
-        return self.can_sleep
-
-    @can_sleep.setter
-    def can_sleep(self, val):
-        if val:
-            self._allow_sleep()
-        if not val:
-            self._prevent_sleep()
-
-    def _prevent_sleep(self):
-        ctypes.windll.kernel32.SetThreadExecutionState(
-            SleepStatus.ES_CONTINUOUS | SleepStatus.ES_SYSTEM_REQUIRED
+    def prevent_sleep(self):
+        self.kept_awake = True
+        windll.kernel32.SetThreadExecutionState(
+            self.ES_CONTINUOUS | self.ES_SYSTEM_REQUIRED
         )
 
-    def _allow_sleep(self):
-        ctypes.windll.kernel32.SetThreadExecutionState(SleepStatus.ES_CONTINUOUS)
+    def allow_sleep(self):
+        self.kept_awake = False
+        windll.kernel32.SetThreadExecutionState(self.ES_CONTINUOUS)
 
 
-sleep_status = SleepStatus()
+keep_awake = KeepAwake()
 
 
-def click(button):
-    if button == "Sleep":
-        time_to_wait = app.getEntry("Time")
-        sleep_status.can_sleep = False
-        if time_to_wait:
-            time_to_wait *= 60000
-            time_to_wait = int(time_to_wait)
-            id = app.after(time_to_wait, sleep_status._allow_sleep)
+class Gui(tk.Tk):
+    def __init__(self):
+        super().__init__()
+
+        OleDLL("shcore").SetProcessDpiAwareness(1)  # Make the text crisp
+
+        # Theming
+        ttk.Style().theme_use("vista")
+        default_font = font.nametofont("TkDefaultFont")
+        default_font.configure(family="Segoe UI", size=12)
+
+        super().wm_title("Keep Awake")
+
+        label = tk.Label(text="Time (Minutes)")
+        label.grid(column=1, row=1, padx=5, pady=5)
+
+        time = tk.StringVar()
+        time_entry = ttk.Entry(
+            self,
+            textvariable=time,
+            validate="key",
+            validatecommand=(self.register(self.validate_integer), "%P"),
+        )
+        time_entry.grid(column=2, row=1, padx=5, pady=5)
+        self.time_entry = time_entry
+
+        submit_button = ttk.Button(
+            self,
+            text="Keep Awake",
+            command=self.start_timer,
+        )
+        submit_button.grid(column=3, row=1, padx=5, pady=5)
+
+        asleep = tk.Label(text="Sleep Permitted")
+        asleep.grid(column=2, row=2, padx=5, pady=5)
+        self.asleep = asleep
+
+    def validate_integer(self, potential_integer: str) -> bool:
+        for char in potential_integer:
+            if char not in INTEGERS:
+                return False
+        return True
+
+    def start_timer(self):
+        self.asleep["text"] = "Sleep Blocked"
+        keep_awake.prevent_sleep()
+        self.after(int(self.time_entry.get()) * 60000, self.end_timer)
+
+    def end_timer(self):
+        self.asleep["text"] = "Sleep Permitted"
+        keep_awake.allow_sleep()
 
 
-with gui("Awake", useTtk=True) as app:
-    app.setTtkTheme("vista")
-    app.setPadding(10, 10)
-    app.addNumericEntry("Time", 0, 0)
-    app.setEntryDefault("Time", "Minutes")
-    # app.setFocus("Time")
-    app.addButton("Awake", click, 0, 1)
-    app.setEntryTooltip("Time", "Leave blank to wait indefinitely")
+if __name__ == "__main__":
+    Gui().mainloop()
