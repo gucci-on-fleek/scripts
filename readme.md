@@ -62,6 +62,45 @@ A basic PowerShell profile.
 I find this PowerShell profile quite useful. It is entirely tailored to
 my own personal use, but hopefully you find some use for it too.
 
+### `enbox.py`
+_Requires: `python3.6+`_
+
+This script will enclose any text in boxes like these:
+
+<!-- We have to use HTML here because you can't include multiline
+code blocks in a table using markdown -->
+<table> 
+    <thead><tr>
+        <th><code>regular</code></th>
+        <th><code>double</code></th>
+        <th><code>thick</code></th>
+        <th><code>curved</code></th>
+    </tr></thead>
+    <tbody><tr>
+        <td><pre>┌───────┐
+│  One  │
+│  Two  │
+│ Three │
+└───────┘
+</pre></td>
+        <td><pre>╔═══════╗
+║  One  ║
+║  Two  ║
+║ Three ║
+╚═══════╝</pre></td>
+        <td><pre>┏━━━━━━━┓
+┃  One  ┃
+┃  Two  ┃
+┃ Three ┃
+┗━━━━━━━┛</pre></td>
+        <td><pre>╭───────╮
+│  One  │
+│  Two  │
+│ Three │
+╰───────╯</pre></td>
+    </tr></tbody>
+</table>
+
 Licence
 -------
 

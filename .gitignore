@@ -1,2 +1,3 @@
 test-*
 outdir
+__pycache__
