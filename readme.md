@@ -101,6 +101,15 @@ code blocks in a table using markdown -->
     </tr></tbody>
 </table>
 
+### `awake.pyw`
+_Requires: `python3`, Windows_
+
+This script allows you to prevent your computer from sleeping. It opens
+up a dialog box that allows for you to enter the number of minutes that
+you want to keep your computer awake. This script only uses modules from
+the Python Standard Library, so it will work on any Windows computer
+with a Python installation.
+
 Licence
 -------
 
