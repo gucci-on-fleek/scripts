@@ -9,9 +9,9 @@
 # This script will enclose any text in boxes like these:
 #  regular   double     thick     curved
 # ┌───────┐ ╔═══════╗ ┏━━━━━━━┓ ╭───────╮
-# │  One  │ ║  One  ║ ┃  One  ┃ │  One   │
-# │  Two  │ ║  Two  ║ ┃  Two  ┃ │  Two   │
-# │ Three │ ║ Three ║ ┃ Three ┃ │ Three  │
+# │  One  │ ║  One  ║ ┃  One  ┃ │  One  │
+# │  Two  │ ║  Two  ║ ┃  Two  ┃ │  Two  │
+# │ Three │ ║ Three ║ ┃ Three ┃ │ Three │
 # └───────┘ ╚═══════╝ ┗━━━━━━━┛ ╰───────╯
 
 from sys import argv, stdin
