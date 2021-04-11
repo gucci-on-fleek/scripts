@@ -11,7 +11,7 @@ Scripts
 -------
 
 ### `remove-white-box.sh`
-_Requires: `qpdf`, `moreutils`, `perl`_
+_Requires: `sh`/`bash`, `qpdf`, `moreutils`, `perl`_
 
 A simple script to remove any white boxes from a PDF. 
 
@@ -28,7 +28,7 @@ then recompressing the PDF. This is without a doubt a horrible abuse
 of regex, but it works fairly well.
 
 ### `noba-to-pdf.sh`
-_Requires: `lualatex`/`xelatex`, `html-xml-utils`, `pandoc`, `curl`_
+_Requires: `sh`/`bash`, `lualatex`/`xelatex`, `html-xml-utils`, `pandoc`, `curl`_
 
 Noba (https://nobaproject.com) hosts some free (CC BY-NC-SA 4.0)
 textbooks, but they sadly do not offer PDFs or any offline downloads.
@@ -119,19 +119,19 @@ more radical remappings.
 
 <details><summary>Full Shortcut Listing</summary><dl>
     <dt> <code>Win</code> + <code>Z</code> </dt> <dd>Launch Windows Terminal</dd> 
-    <dt> <code>Win</code> + <code></code><code>Shift</code> + <code>Z</code> </dt> <dd>Launch Windown Terminal as Admin</dd> 
-    <dt> <code>Win</code> + <code></code><code>Ctrl</code> + <code>Space</code> </dt> <dd>Make the current window s-on-top</dd> 
-    <dt> <code>Win</code> + <code></code><code>Shift</code> + <code>Space</code> </dt> <dd>Insert narrow no-break space</dd> 
+    <dt> <code>Win</code> + <code>Shift</code> + <code>Z</code> </dt> <dd>Launch Windown Terminal as Admin</dd> 
+    <dt> <code>Win</code> + <code>Ctrl</code> + <code>Space</code> </dt> <dd>Make the current window s-on-top</dd> 
+    <dt> <code>Win</code> + <code>Shift</code> + <code>Space</code> </dt> <dd>Insert narrow no-break space</dd> 
     <dt> <code>Win</code> + <code>Numpad Minus</code> </dt> <dd>Insert En Dash</dd> 
-    <dt> <code>Win</code> + <code></code><code>Shift</code> + <code>Numpad Minus</code> </dt> <dd>Insert Em Dash</dd> 
+    <dt> <code>Win</code> + <code>Shift</code> + <code>Numpad Minus</code> </dt> <dd>Insert Em Dash</dd> 
     <dt> <code>Win</code> + <code>Numpad Asterisk</code> </dt> <dd>Insert Multiplication Sign</dd> 
     <dt> <code>Win</code> + <code>Numpad Slash</code> </dt> <dd>Insert Division Sign</dd> 
-    <dt> <code>Win</code> + <code></code><code>Shift</code> + <code>^</code> , Any Digit </dt> <dd>Insert Superscript number</dd> 
-    <dt> <code>Win</code> + <code></code><code>Shift</code> + <code>_</code> , Any Digit </dt> <dd>Insert Subscript number</dd> 
-    <dt> <code>Win</code> + <code></code><code>Ctrl</code> + <code>G</code> , Any Letter </dt> <dd>Insert Greek Letter</dd> 
-    <dt> <code>Win</code> + <code></code><code>Ctrl</code> + <code>.</code> </dt> <dd>Insert Ellipsis </dd> 
-    <dt> <code>Win</code> + <code></code><code>Ctrl</code> + <code>V</code> </dt> <dd>Paste as Plain Text</dd> 
-    <dt> <code>Win</code> + <code></code><code>Ctrl</code> + <code>C</code> </dt> <dd>Send left-click until keypress</dd> 
+    <dt> <code>Win</code> + <code>Shift</code> + <code>^</code> , Any Digit </dt> <dd>Insert Superscript number</dd> 
+    <dt> <code>Win</code> + <code>Shift</code> + <code>_</code> , Any Digit </dt> <dd>Insert Subscript number</dd> 
+    <dt> <code>Win</code> + <code>Ctrl</code> + <code>G</code> , Any Letter </dt> <dd>Insert Greek Letter</dd> 
+    <dt> <code>Win</code> + <code>Ctrl</code> + <code>.</code> </dt> <dd>Insert Ellipsis </dd> 
+    <dt> <code>Win</code> + <code>Ctrl</code> + <code>V</code> </dt> <dd>Paste as Plain Text</dd> 
+    <dt> <code>Win</code> + <code>Ctrl</code> + <code>C</code> </dt> <dd>Rapidly left-click until any keyboard key is pressed</dd> 
     <dt> Three Finger Touchpad Tap </dt> <dd>Middle Click</dd>
 </dl></details>
 
