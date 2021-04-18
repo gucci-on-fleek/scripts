@@ -28,7 +28,7 @@ def enbox(string: str, box_type: BoxTypes) -> str:
 
     Args:
         string (str): The string to enclose in a box
-        BOX_TYPE ("double" | "thick" | "regular" | "curved"): The type of box
+        box_type ("double" | "thick" | "regular" | "curved"): The type of box
 
     Returns:
         str: The string enclosed in the box.
@@ -71,7 +71,7 @@ def enbox(string: str, box_type: BoxTypes) -> str:
     part = box_parts[box_type]
     lines: List[str] = []
 
-    # Tabs interfere with the length calculations and must be removed
+    # Tabs interfere with the length calculations and must be converted to spaces
     string = string.replace("\t", " " * 8)
 
     for line in string.split("\n"):
