@@ -25,7 +25,13 @@ new-item alias:u -value "$env:LOCALAPPDATA\Microsoft\WindowsApps\ubuntu.exe" | o
 rm alias:\curl # Make 'curl' use the curl executable and not the fake PowerShell default alias
 
 Set-PSReadlineOption -BellStyle Audible -DingTone 400 -DingDuration 40
-Set-PSReadlineOption -Colors @{"Variable" = [ConsoleColor]::DarkRed; "Parameter" = [ConsoleColor]::DarkBlue; "Operator" = [ConsoleColor]::DarkMagenta; "String" = [ConsoleColor]::Green; "Number" = [ConsoleColor]::Magenta } # Change the default colours
+Set-PSReadlineOption -Colors @{
+    "Variable"  = [ConsoleColor]::DarkRed;
+    "Parameter" = [ConsoleColor]::DarkBlue;
+    "Operator"  = [ConsoleColor]::DarkMagenta;
+    "String"    = [ConsoleColor]::Green;
+    "Number"    = [ConsoleColor]::Magenta
+} # Change the default colours
 
 function Prompt {
     $current_path = " $($executionContext.SessionState.Path.CurrentLocation)>"
