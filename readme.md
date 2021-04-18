@@ -135,6 +135,42 @@ more radical remappings.
     <dt> Three Finger Touchpad Tap </dt> <dd>Middle Click</dd>
 </dl></details>
 
+### `dolby-surround-encoder.sh`
+_Requires: `sh`/`bash`, `ffmpeg`_
+
+An encoder to convert modern 5.1 surround sound files to the ancient
+Dolby Surround/Pro Logic matrix-encoded format.
+
+Almost all modern video/audio files that contain surround sound encode
+each channel separately. This is great for modern equipment since
+discrete channels provide much better channel separation than
+matrix-encoded channels. However, some (very old) surround decoders
+only support the Dolby Surround or Dolby Pro Logic formats, where 2 
+input channels are decoded into 4 distinct output channels. This
+script converts any surround sound format supported by ffmpeg into 
+the 2-channel Dolby Surround format.
+
+This script follows the "official" implementation fairly closely, but
+some changes have been made from the specs so that the resultant files
+sound correct on my circa 1991 equipment. I have reduced the centre
+channel volume by 6dB (spec=3dB),  raised the LFE/subwoofer by 
+3dB (spec=0dB), and increased the surround channel by 3dB (spec=-3dB). 
+The exact time delay required for the surround channel has not been 
+documented, so I just guessed that it was 50ms. Finally, I did not 
+apply Dolby B NR to the surround channel since I have no idea how to do 
+so with ffmpeg or any other OSS tool. 
+
+Note: This script uses the `aphaseshift` filter. This requires a *very*
+recent build of ffmpeg. Download the "git master" version of ffmpeg from
+https://johnvansickle.com/ffmpeg/ or compile from source. (This filter 
+will eventually end up in widely-released ffmpeg versions)
+
+This script is based off of the algorithms documented in:
+  - https://en.wikipedia.org/wiki/Matrix_decoder#Dolby_Stereo_and_Dolby_Surround_(matrix_4:2:4)
+  - https://en.wikipedia.org/wiki/Dolby_Pro_Logic#Dolby_Pro_Logic
+  - https://web.archive.org/web/20140326110501/http://www.dolby.com/uploadedFiles/Assets/US/Doc/Professional/208_Dolby_Surround_Pro_Logic_Decoder.pdf
+  - http://plugin.org.uk/ladspa-swh/docs/ladspa-swh.html#tth_sEc2.102
+
 Licence
 -------
 
