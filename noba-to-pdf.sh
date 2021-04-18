@@ -68,7 +68,7 @@ author=$(hxselect -c '[property="cc:attributionName"]' < "$downloadfile")
 
 printf '\\author{%s}' "$author" >> "$texfile"
 printf '\\title{\\bfseries %s}' "$title" >> "$texfile"
-printf '\\date{\\normalsize\\url{%s}}' "$url" >> "$texfile" # An absolute abuse of the data command, but easier than redefining \maketitle
+printf '\\date{\\normalsize\\url{%s}}' "$url" >> "$texfile" # An absolute abuse of the date command, but easier than redefining \maketitle
 echo '\\maketitle' >> "$texfile"
 
 hxselect -c 'section.content' < "$downloadfile" >> "$outfile"
