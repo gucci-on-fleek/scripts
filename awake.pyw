@@ -58,7 +58,7 @@ class SleepDialog(tk.Tk, SleepAvailability):
         self.resizable(False, False)
 
         # Widgets
-        super().wm_title("Keep Awake")
+        self.wm_title("Keep Awake")
 
         label = ttk.Label(text="Time (Minutes)")
         label.grid(column=1, row=1, padx=5, pady=5)
@@ -72,7 +72,7 @@ class SleepDialog(tk.Tk, SleepAvailability):
             font=("Segoe UI", 12),  # ttk.Entry does not inherit default font
         )
         time_entry.grid(column=2, row=1, padx=5, pady=5)
-        time_entry.focus()
+        time_entry.focus()  # Focus the time entry so you can just start typing
         self.time_entry = time_entry
 
         submit_button = ttk.Button(
