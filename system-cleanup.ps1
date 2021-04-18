@@ -52,7 +52,7 @@ $cache_clr = {
 
   .DESCRIPTION
     This should reduce or eliminate the dreaded "Loading personal
-    and system profiles took 5000ms." on PowerShell startup.
+    and system profiles took 5000ms" message on PowerShell startup.
   #>
 
   $ngen = "$([Runtime.InteropServices.RuntimeEnvironment]::GetRuntimeDirectory())ngen.exe"
