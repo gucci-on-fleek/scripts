@@ -54,9 +54,9 @@ filter=$(sed -zEe 's/[[:space:]]*(#[^\n]*)?\n/;/g' -e 's/;$//' <<-'EOF' # This s
 	[FC] volume=0.5 [FC] # Reduce the centre volume by 6dB
 	[LFE] volume=1.413 [LFE] # Boost subwoofer volume by 3dB
 	[surround] volume=1.413 [surround] # Boost surround volume by 3dB
-    [surround] adelay=50 [surround] # Add a 50ms delay to the surround channel to harness the Haas effect
-    [surround] lowpass=f=7000 [surround] # Remove any audio above 7kHz from the surround channel
-    [surround] highpass=f=100 [surround] # Remove any audio below 100Hz from the surround channel
+	[surround] adelay=50 [surround] # Add a 50ms delay to the surround channel to harness the Haas effect
+	[surround] lowpass=f=7000 [surround] # Remove any audio above 7kHz from the surround channel
+	[surround] highpass=f=100 [surround] # Remove any audio below 100Hz from the surround channel
 	[surround] asplit [surround_left][surround_right] # We need to apply separate transforms to the surround channel for the left and right mix, so we duplicate it into two channels
 	[LFE] asplit [lfe_l][lfe_r] # When we mix an input in, ffmpeg "uses it up", so we need still need to duplicate channels that are mixed equally into left and right
 	[FC] asplit [fc_l][fc_r]
