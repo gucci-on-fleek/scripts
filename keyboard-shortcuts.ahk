@@ -125,6 +125,7 @@ return
         case "r": Send ρ
         case "s": Send σ
         case "t": Send τ
+        case "o": Send ω
         case "Gx": Send Γ
         case "Dx": Send Δ
         case "Tx": Send Θ
